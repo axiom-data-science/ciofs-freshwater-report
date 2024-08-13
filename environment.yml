@@ -1,0 +1,21 @@
+name: ciofs-freshwater-report
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  # Required for full project functionality (dont remove)
+  - pytest
+  - cmocean
+  - geoviews
+  - hvplot
+  - jupyter
+  - jupyter-book
+  - matplotlib-base
+  # - ocean-model-skill-assessor
+  - fastparquet
+  - pandas
+  - pip
+  # - pip:
+  #   - geopy
+  #   - git+https://github.com/intake/intake.git
+  #   - git+https://github.com/axiom-data-science/cook-inlet-catalogs.git
