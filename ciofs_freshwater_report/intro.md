@@ -1,11 +1,19 @@
-# Welcome to your Jupyter Book
+# Cook Inlet Circulation Modeling - Freshwater Forcing Experiment and Lagrangian Analysis
 
-This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
 
-Check out the content pages bundled with this sample book to see more.
+## Final Report to the National Oceanic Atmospheric Administration National Centers for Coastal Ocean Science Kasitsna Bay Lab
+
+
+```{figure} images/rip_2013-06-21_03.png
+```
+
+This project has been supported by the National Oceanic Atmospheric Administration National Centers for Coastal Ocean Science Kasitsna Bay Lab.
+
+October 11, 2024
+
+Citation:
+Thyng, K. M., C. Liu, 2024. Cook Inlet Circulation Modeling - Freshwater Forcing Experiment and Lagrangian Analysis, Final Report to the National Oceanic Atmospheric Administration National Centers for Coastal Ocean Science Kasitsna Bay Lab, Axiom Data Science, Anchorage, AK.
+
 
 ```{tableofcontents}
 ```

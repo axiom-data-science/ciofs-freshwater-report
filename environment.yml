@@ -5,17 +5,30 @@ dependencies:
   - python=3.11
   # Required for full project functionality (dont remove)
   - pytest
+  - cf_pandas
+  - cf_xarray
   - cmocean
+  - extract_model
   - geoviews
   - hvplot
+  - intake==2.0.7
   - jupyter
   - jupyter-book
+  - jupytext
   - matplotlib-base
   # - ocean-model-skill-assessor
+  - ocean-model-skill-assessor #( need new release)
   - fastparquet
   - pandas
   - pip
-  # - pip:
+  - seaborn
+  - xcmocean
+  - docutils==0.17.1
+  - pip:
+    - intake-coops
+    #- docutils==0.17.1  # jupyter-book recommends this as of 10/9/24: https://jupyterbook.org/en/stable/content/citations.html
+    # - cook-inlet-catalogs
+    # - report-tools
   #   - geopy
   #   - git+https://github.com/intake/intake.git
   #   - git+https://github.com/axiom-data-science/cook-inlet-catalogs.git
