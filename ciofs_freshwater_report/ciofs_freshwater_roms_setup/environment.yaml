@@ -1,0 +1,19 @@
+name: ciofs_fw 
+channels:
+  - conda-forge
+dependencies:
+  - numpy
+  - scipy
+  - matplotlib
+  - netcdf4
+  - nco
+  - pynco
+  - cftime
+  - lpsolve55
+  - pip
+  - xarray
+  - xesmf
+  - cartopy
+  - numba
+  - dask
+  - basemap

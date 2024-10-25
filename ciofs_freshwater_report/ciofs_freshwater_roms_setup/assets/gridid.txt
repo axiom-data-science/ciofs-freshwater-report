@@ -1,0 +1,11 @@
+# gridid definition file
+#
+id      = CIOFS
+name    = CIOFS
+grdfile = /mnt/vault/ciofs/input/nos.ciofs.romsgrid.nc 
+N       = 30
+grdtype = roms
+Vtrans  = 1
+theta_s = 4.5
+theta_b = 0.91
+Tcline  = 10
