@@ -4,28 +4,27 @@ channels:
 dependencies:
   - python=3.11
   # Required for full project functionality (dont remove)
-  - pytest
-  - cf_pandas
-  - cf_xarray
-  - cmocean
+  - pytest=8.3.2
+  - cf_pandas=0.8.1
+  - cf_xarray=0.10.0
+  - cmocean=4.0.3
   - extract_model
-  - geoviews
-  - hvplot
+  - fastparquet=2024.2.0
+  - geoviews=1.12.0
+  - hvplot=0.10.0
   - intake==2.0.7
   - jupyter
   - jupyter-book
-  - jupytext
-  - matplotlib-base
-  # - ocean-model-skill-assessor
-  - ocean-model-skill-assessor #( need new release)
-  - fastparquet
-  - pandas
-  - pip
-  - seaborn
-  - xcmocean
+  - jupytext=1.16.4
+  - matplotlib-base=3.9.1
+  - ocean-model-skill-assessor=1.3.2
+  - pandas=2.2.2
+  - pip=24.2
+  - seaborn=0.13.2
+  - xcmocean=0.3.2
   - docutils==0.17.1
   - pip:
-    - intake-coops
+    - intake-coops==0.4.0
     #- docutils==0.17.1  # jupyter-book recommends this as of 10/9/24: https://jupyterbook.org/en/stable/content/citations.html
     # - cook-inlet-catalogs
     # - report-tools

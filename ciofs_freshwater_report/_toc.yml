@@ -1,14 +1,6 @@
 # Table of contents
 # Learn more at https://jupyterbook.org/customize/toc.html
 
-# format: jb-book
-# root: intro
-# chapters:
-# - file: markdown
-# - file: notebooks
-# - file: markdown-notebooks
-
-
 format: jb-book
 root: intro
 parts:
@@ -17,13 +9,9 @@ parts:
     - file: executive_summary.md
     - file: model_description.md
     - file: model_mean_salinity_overview.md
-      # title: Model-Model Comparisons
       sections: # only surface salinity
       - file: ciofs-fresh-hind-salinity-plots/ciofs_fresh_hind_salinity_plots/salinity.md
     - file: data_catalogs.md
-    #   title: Datasets
-    #   sections:
-    #   - glob: outputs/pages/data/*
     - file: model_data_summary.md
       title: Model-Data Comparisons
       sections:
@@ -66,9 +54,3 @@ parts:
         - file: ciofs-skill-assessment/ciofs_skill_assessment/report/ctd_profiles_kachemack_kuletz_2005_2007/ctd_profiles_kachemack_kuletz_2005_2007.md
         - file: ciofs-skill-assessment/ciofs_skill_assessment/report/ctd_profiles_kb_small_mesh_2006/ctd_profiles_kb_small_mesh_2006.md
     - file: references.md
-    # - file: appendix/appendix
-    #   sections:
-    #   - file: model_overview_and_setup/open_boundary_forcing_and_initial_conditions
-    #   - file: model_overview_and_setup/river_forcing_demo
-    #   - file: appendix/river_forcing_make_files
-
