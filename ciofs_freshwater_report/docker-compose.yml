@@ -1,0 +1,102 @@
+services:
+  pdf:
+    build:
+      dockerfile_inline: |
+        FROM python:3.13-bookworm
+
+        # # Install Chromium + chromedriver so Selenium/Bokeh can find them
+        # RUN apt-get update && apt-get install -y \
+        #     chromium chromium-driver \
+        #     && rm -rf /var/lib/apt/lists/*
+
+        # RUN apt-get update && apt-get install -y \
+        #     chromium chromium-driver \
+        #     libnss3 libatk1.0-0 libatk-bridge2.0-0 \
+        #     libcups2 libxkbcommon0 libxcomposite1 libxrandr2 \
+        #     libgbm1 libasound2 \
+        # && rm -rf /var/lib/apt/lists/*
+
+        # RUN apt-get install -y chromium chromium-driver
+        # RUN apt-get install -y chromium-chromedriver
+
+        # # Add symlinks so Selenium/Bokeh can find the browser
+        # RUN ln -s /usr/bin/chromium /usr/bin/chromium-browser && \
+        #     ln -s /usr/bin/chromium /usr/bin/google-chrome
+
+        RUN pip install jupyter-book playwright pandas>2.1 cf-pandas cook-inlet-catalogs==1.0.1 intake cartopy==0.23.0 holoviews==1.19.1 geoviews hvplot ocean-model-skill-assessor==1.3.2 PyPDF2 geopandas cmocean xcmocean datetimerange==2.2.1 xgcm intake-coops dateparser selenium
+        ENV PLAYWRIGHT_BROWSERS_PATH=0
+        # RUN playwright install chromium
+        RUN playwright install --with-deps chromium
+
+        # RUN sed -i \
+        #     -e 's/wait_until="networkidle"/wait_until="load", timeout=500000/' \
+        #     $(python -c "import jupyter_book, inspect, os; print(os.path.join(os.path.dirname(inspect.getfile(jupyter_book)), 'pdf.py'))")
+
+    environment:
+      HOME: /home/kristen
+      PLAYWRIGHT_BROWSERS_PATH: 0
+      PYPPETEER_HOME: /tmp/pyppeteer
+      MPLCONFIGDIR: /tmp/matplotlib
+      XDG_CACHE_HOME: /home/kristen/.cache
+      CARTOPY_USER_DIR: /projects/ciofs-freshwater-report/ciofs_freshwater_report/tmp/cartopy
+      # XDG_CACHE_HOME: /tmp/cache
+      # PYPPETEER_HOME: /projects/ciofs-freshwater-report/ciofs_freshwater_report/tmp/pyppeteer
+      # MPLCONFIGDIR: /projects/ciofs-freshwater-report/ciofs_freshwater_report/tmp/matplotlib
+      # XDG_CACHE_HOME: /projects/ciofs-freshwater-report/ciofs_freshwater_report/tmp/cache
+      # XDG_CACHE_HOME: /home/kristen/.cache
+
+    volumes:
+      - ..:/projects/ciofs-freshwater-report
+      - ../../ciofs-drifter-sims:/projects/ciofs-freshwater-report/ciofs_freshwater_report/ciofs-drifter-sims
+      - ../../ciofs-fresh-hind-salinity-plots:/projects/ciofs-freshwater-report/ciofs_freshwater_report/ciofs-fresh-hind-salinity-plots:ro
+      - ../../ciofs_freshwater_roms_setup:/projects/ciofs-freshwater-report/ciofs_freshwater_report/ciofs_freshwater_roms_setup:ro
+      - ../../ciofs-skill-assessment:/projects/ciofs-freshwater-report/ciofs_freshwater_report/ciofs-skill-assessment
+      # - ../../ciofs-skill-assessment:/projects/ciofs-freshwater-report/ciofs_freshwater_report/ciofs-skill-assessment:ro
+      - ../../cook-inlet-catalogs:/projects/ciofs-freshwater-report/ciofs_freshwater_report/cook-inlet-catalogs:ro
+      # Add writable cache/config directories
+    #   - ./mplconfig:/projects/ciofs-freshwater-report/ciofs_freshwater_report/tmp/matplotlib
+    #   - ./cook-inlet-cache:/projects/ciofs-freshwater-report/ciofs_freshwater_report/.cache/cook-inlet-catalogs
+      # - /home/kristen/.cache/cook-inlet-catalogs:/home/kristen/.cache/cook-inlet-catalogs
+      # - /home/kristen/.cache/ocean-model-skill-assessor:/home/kristen/.cache/ocean-model-skill-assessor
+      - /home/kristen:/home/kristen
+      # - /home/kristen:/home/kristen:ro
+      - /media/data/kristen/projects/:/media/data/kristen/projects/
+      # - /media/data/kristen/projects/:/media/data/kristen/projects/:ro
+      # - /home/kristen/.cache:/home/kristen/.cache:ro
+        # - ./cook-inlet-cache:/home/kristen/.cache/cook-inlet-catalogs
+    # volumes:
+      - /tmp/mplconfig:/projects/ciofs-freshwater-report/ciofs_freshwater_report/tmp/matplotlib
+      # - /tmp/cook-inlet-cache:/projects/ciofs-freshwater-report/ciofs_freshwater_report/.cache/cook-inlet-catalogs
+      - ~/.local/share/cartopy:/projects/ciofs-freshwater-report/ciofs_freshwater_report/tmp/cartopy:ro
+      # - /home/kristen/.local:/home/kristen/.local:ro
+
+    user: "${USERID:-1000}:${GROUPID:-1000}"
+    # command: jupyter-book build --verbose /projects/ciofs-freshwater-report/ciofs_freshwater_report/ciofs-drifter-sims/ciofs_drifter_sims/report/overview.md --builder pdfhtml
+    command: >
+      bash -c "
+        echo 'Building PDFs for each section...' &&
+
+        # check latex, overview plots, all projects, references
+
+        # Build PDF for main - rerun
+        jupyter-book build /projects/ciofs-freshwater-report/ciofs_freshwater_report/ --toc /projects/ciofs-freshwater-report/ciofs_freshwater_report/_toc_pdf_main.yml --path-output /projects/ciofs-freshwater-report/ciofs_freshwater_report/_build/main --builder pdfhtml
+
+        # # Build PDF for drifters - done
+        # jupyter-book build /projects/ciofs-freshwater-report/ciofs_freshwater_report/ --toc /projects/ciofs-freshwater-report/ciofs_freshwater_report/_toc_pdf_drifters.yml --path-output /projects/ciofs-freshwater-report/ciofs_freshwater_report/_build/drifters --builder pdfhtml
+
+        # # Build PDF for moorings
+        # jupyter-book build /projects/ciofs-freshwater-report/ciofs_freshwater_report/ --toc /projects/ciofs-freshwater-report/ciofs_freshwater_report/_toc_pdf_moorings.yml --path-output /projects/ciofs-freshwater-report/ciofs_freshwater_report/_build/moorings --builder pdfhtml
+
+        # # Build PDF for CTD transects - done
+        # jupyter-book build /projects/ciofs-freshwater-report/ciofs_freshwater_report/ --toc /projects/ciofs-freshwater-report/ciofs_freshwater_report/_toc_pdf_ctd_transects.yml --path-output /projects/ciofs-freshwater-report/ciofs_freshwater_report/_build/ctd_transects --builder pdfhtml
+
+        # # Build PDF for CTD profiles - done
+        # jupyter-book build /projects/ciofs-freshwater-report/ciofs_freshwater_report/ --toc /projects/ciofs-freshwater-report/ciofs_freshwater_report/_toc_pdf_ctd_profiles.yml --path-output /projects/ciofs-freshwater-report/ciofs_freshwater_report/_build/ctd_profiles --builder pdfhtml
+
+        # # Build PDF for HF Radar - rerun to include TDs
+        # jupyter-book build /projects/ciofs-freshwater-report/ciofs_freshwater_report/ --toc /projects/ciofs-freshwater-report/ciofs_freshwater_report/_toc_pdf_hfradar.yml --path-output /projects/ciofs-freshwater-report/ciofs_freshwater_report/_build/hfradar --builder pdfhtml
+
+        # # Build PDF for ADCP - done
+        # jupyter-book build /projects/ciofs-freshwater-report/ciofs_freshwater_report/ --toc /projects/ciofs-freshwater-report/ciofs_freshwater_report/_toc_pdf_adcp.yml --path-output /projects/ciofs-freshwater-report/ciofs_freshwater_report/_build/adcp --builder pdfhtml
+
+      "

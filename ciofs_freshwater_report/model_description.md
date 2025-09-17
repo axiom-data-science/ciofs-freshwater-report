@@ -7,7 +7,7 @@ There are three models being actively run in and/or used in Cook Inlet which are
 
 * CIOFS operational: Run as a nowcast/forecast since Aug 31, 2021 and forecast 48 hours. [Portal link](https://portal.aoos.org/?ls=nXIcHlsW#module-metadata/60fb5c3c-3b2f-44eb-9d14-536fcaeebbe6)
 * CIOFS hindcast: from 1999 through 2022. [Portal link](https://portal.aoos.org/?ls=nXIcHlsW#module-metadata/ff82ba46-9d33-487e-aa83-d57c7521d6b0)
-* CIOFS freshwater forcing: 2003–2006 and 2012–2014. [Portal link]()
+* CIOFS freshwater forcing: 2003–2006 and 2012–2014. [Portal link](https://portal.aoos.org/#module-metadata/43596105-4a50-4528-985f-bb65e1c08e2c)
 
 where CIOFS originally stood for Cook Inlet Operational Forecast System.
 

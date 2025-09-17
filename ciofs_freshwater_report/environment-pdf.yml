@@ -4,34 +4,38 @@ channels:
 dependencies:
   - python=3.11
   # Required for full project functionality (dont remove)
-  - pytest=8.3.2
+  - pytest
   - cartopy=0.23.0  # with 0.25.0 overview_moorings compilation stopped on 2nd overview plot
-  - cf_pandas=0.8.1
-  - cf_xarray=0.10.0
-  - cmocean=4.0.3
+  - cf_pandas
+  - cf_xarray
+  - cmocean
   # - extract_model>=1.4.4
-  - fastparquet=2024.2.0
-  - geoviews=1.12.0
+  - fastparquet
+  - geoviews
   - holoviews=1.19.1  # otherwise the drifter overview plots were impossibly slow with newer version
-  - hvplot=0.10.0
+  - hvplot
   - intake==2.0.7
   - jupyter
   - jupyter-book
-  - jupytext=1.16.4
-  - matplotlib-base=3.9.1
+  - jupytext
+  - matplotlib-base
   - ocean-model-skill-assessor=1.3.2
-  - pandas=2.2.2
-  - pip=24.2
-  - seaborn=0.13.2
+  - pandas
+  - pip
+  - playwright
+  - PyPDF2
+  - pyppeteer
+  - seaborn
   - xcmocean=0.3.2
   - docutils==0.17.1
-  # also install locally: report-utils
+  # also install locally: cook-inlet-catalogs, report-utils
   - pip:
     - extract_model>=1.4.4
     - intake-coops
-    #- docutils==0.17.1  # jupyter-book recommends this as of 10/9/24: https://jupyterbook.org/en/stable/content/citations.html
     - cook-inlet-catalogs==1.0.1
+    #- docutils==0.17.1  # jupyter-book recommends this as of 10/9/24: https://jupyterbook.org/en/stable/content/citations.html
+    # - cook-inlet-catalogs
     # - report-tools
   #   - geopy
   #   - git+https://github.com/intake/intake.git
-  #   - git+https://github.com/axiom-data-science/cook-inlet-catalogs.git
+    # - git+https://github.com/axiom-data-science/cook-inlet-catalogs.git

@@ -11,10 +11,10 @@ only_build_toc_files: true
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
-  execute_notebooks: cache
-  timeout: 1800
+  execute_notebooks: auto  # cache or force or auto
+  timeout: 7200
   exclude_patterns          : ["ciofs-skill-assessment/ciofs_skill_assessment/report/overview_moorings.ipynb",
-                               "ciofs-skill-assessment/ciofs_skill_assessment/report/overview_adcp.md",
+                              #  "ciofs-skill-assessment/ciofs_skill_assessment/report/overview_adcp.md",
                                ciofs-skill-assessment/ciofs_skill_assessment/report/overview_ctd_transects.ipynb
                                ]    # A list of patterns to *skip* in execution (e.g. a notebook that takes a really long time)
   # exclude_patterns          : ["*.ipynb"]    # A list of patterns to *skip* in execution (e.g. a notebook that takes a really long time)

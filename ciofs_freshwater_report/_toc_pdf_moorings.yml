@@ -1,0 +1,81 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+# PDF version
+
+format: jb-book
+root: intro
+parts:
+  # # high level only
+  # - caption: Contents
+  #   numbered: True
+  #   chapters:
+  #   - file: executive_summary.md
+  #   - file: model_description.md
+  #   - file: model_mean_salinity_overview.md
+  #   - file: data_catalogs.md
+  #   - file: model_data_summary.md
+  #   - file: metrics.md
+  #     title: Model-Data Comparison Methodology
+  #   - file: ciofs-skill-assessment/ciofs_skill_assessment/report/overview_moorings.md
+  #     title: Overview Moorings
+  #   - file: ciofs-skill-assessment/ciofs_skill_assessment/report/overview_ctd_transects.md
+  #   - file: ciofs-skill-assessment/ciofs_skill_assessment/report/overview_ctd_profiles.md
+  #   - file: ciofs-skill-assessment/ciofs_skill_assessment/report/overview_hfradar.md
+  #   - file: ciofs-skill-assessment/ciofs_skill_assessment/report/overview_adcp.md
+  #   - file: ciofs-drifter-sims/ciofs_drifter_sims/report/methods.md
+  #   - file: ciofs-drifter-sims/ciofs_drifter_sims/report/overview.md
+  #     title: Overview Drifters
+  #   - file: references.md
+
+  #     # nothing here because in dropdowns
+  #     # sections: # only surface salinity
+  #     # - file: ciofs-fresh-hind-salinity-plots/ciofs_fresh_hind_salinity_plots/salinity.md
+
+  # # individual sections for pdfs
+  # - caption: Drifter Simulations
+  #   title: Overview Drifters
+  #   chapters:
+  #   - file: ciofs-drifter-sims/ciofs_drifter_sims/report/overview.md
+  #   - file: ciofs-drifter-sims/ciofs_drifter_sims/report/methods.md
+  #   - file: ciofs-drifter-sims/ciofs_drifter_sims/report/drifters_ecofoci.md
+  #   - file: ciofs-drifter-sims/ciofs_drifter_sims/report/drifters_uaf.md
+
+  - caption: Moorings Model Comparisons
+    chapters:
+    - file: ciofs-skill-assessment/ciofs_skill_assessment/report/overview_moorings.md
+    - file: ciofs-skill-assessment/ciofs_skill_assessment/report/moorings_aoos_cdip/moorings_aoos_cdip.md
+    - file: ciofs-skill-assessment/ciofs_skill_assessment/report/moorings_circac/moorings_circac.md
+    - file: ciofs-skill-assessment/ciofs_skill_assessment/report/moorings_kbnerr/moorings_kbnerr.md
+    - file: ciofs-skill-assessment/ciofs_skill_assessment/report/moorings_kbnerr_bear_cove_seldovia/moorings_kbnerr_bear_cove_seldovia.md
+    - file: ciofs-skill-assessment/ciofs_skill_assessment/report/moorings_kbnerr_historical/moorings_kbnerr_historical.md
+    - file: ciofs-skill-assessment/ciofs_skill_assessment/report/moorings_kbnerr_homer/moorings_kbnerr_homer.md
+    - file: ciofs-skill-assessment/ciofs_skill_assessment/report/moorings_noaa/moorings_noaa.md
+    - file: ciofs-skill-assessment/ciofs_skill_assessment/report/moorings_uaf/moorings_uaf.md
+
+  # - caption: CTD Transects Model Comparisons
+  #   chapters:
+  #   - file: ciofs-skill-assessment/ciofs_skill_assessment/report/overview_ctd_transects.md
+  #   - file: ciofs-skill-assessment/ciofs_skill_assessment/report/ctd_transects_barabara_to_bluff_2002_2003/ctd_transects_barabara_to_bluff_2002_2003.md
+  #   - file: ciofs-skill-assessment/ciofs_skill_assessment/report/ctd_transects_cmi_kbnerr/ctd_transects_cmi_kbnerr.md
+  #   - file: ciofs-skill-assessment/ciofs_skill_assessment/report/ctd_transects_cmi_uaf/ctd_transects_cmi_uaf.md
+  #   - file: ciofs-skill-assessment/ciofs_skill_assessment/report/ctd_transects_gwa/ctd_transects_gwa.md
+  #   - file: ciofs-skill-assessment/ciofs_skill_assessment/report/ctd_transects_otf_kbnerr/ctd_transects_otf_kbnerr.md
+  #   - file: ciofs-skill-assessment/ciofs_skill_assessment/report/ctd_transects_uaf/ctd_transects_uaf.md
+
+  # - caption: CTD Profiles Model Comparisons
+  #   chapters:
+  #   - file: ciofs-skill-assessment/ciofs_skill_assessment/report/overview_ctd_profiles.md
+  #   - file: ciofs-skill-assessment/ciofs_skill_assessment/report/ctd_profiles_2005_noaa/ctd_profiles_2005_noaa.md
+  #   - file: ciofs-skill-assessment/ciofs_skill_assessment/report/ctd_profiles_kachemack_kuletz_2005_2007/ctd_profiles_kachemack_kuletz_2005_2007.md
+  #   - file: ciofs-skill-assessment/ciofs_skill_assessment/report/ctd_profiles_kb_small_mesh_2006/ctd_profiles_kb_small_mesh_2006.md
+
+  # - caption: HF Radar Model Comparisons
+  #   chapters:
+  #   - file: ciofs-skill-assessment/ciofs_skill_assessment/report/overview_hfradar.md
+  #   - file: ciofs-skill-assessment/ciofs_skill_assessment/report/hfradar/hfradar.md
+
+  # - caption: ADCP Model Comparisons
+  #   chapters:
+  #   - file: ciofs-skill-assessment/ciofs_skill_assessment/report/overview_adcp.md
+  #   - file: ciofs-skill-assessment/ciofs_skill_assessment/report/adcp_moored_noaa_coi_2005/adcp_moored_noaa_coi_2005.md
+  #   - file: ciofs-skill-assessment/ciofs_skill_assessment/report/adcp_moored_noaa_coi_other/adcp_moored_noaa_coi_other.md
